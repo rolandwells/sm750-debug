@@ -1,0 +1,45 @@
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.588666] usb 1-3: new high-speed USB device number 8 using xhci_hcd
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.778713] usb 1-3: New USB device found, idVendor=05e3, idProduct=0610
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.778726] usb 1-3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.778733] usb 1-3: Product: USB2.0 Hub
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.778739] usb 1-3: Manufacturer: GenesysLogic
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.780531] hub 1-3:1.0: USB hub found
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.780646] usb 2-3: new SuperSpeed USB device number 5 using xhci_hcd
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.781538] hub 1-3:1.0: 4 ports detected
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.801030] usb 2-3: New USB device found, idVendor=05e3, idProduct=0612
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.801038] usb 2-3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.801042] usb 2-3: Product: USB3.0 Hub
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.801045] usb 2-3: Manufacturer: GenesysLogic
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.807765] hub 2-3:1.0: USB hub found
+Apr 20 21:20:39 rw-hublab-16 kernel: [  252.808198] hub 2-3:1.0: 4 ports detected
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.092391] usb 1-3.2: new full-speed USB device number 9 using xhci_hcd
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.182603] usb 1-3.2: New USB device found, idVendor=0c76, idProduct=1617
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.182612] usb 1-3.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.182617] usb 1-3.2: Product: USB PnP Audio Device
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.182621] usb 1-3.2: Manufacturer: Solid State System Co.,Ltd.
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.184366] usb 2-3.1: new SuperSpeed USB device number 6 using xhci_hcd
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.189998] usb 1-3.2: Warning! Unlikely big volume range (=496), cval->res is probably wrong.
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.190006] usb 1-3.2: [51] FU [Mic Playback Volume] ch = 1, val = 0/7936/16
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.191955] usb 1-3.2: Warning! Unlikely big volume range (=1008), cval->res is probably wrong.
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.191961] usb 1-3.2: [49] FU [Speaker Playback Volume] ch = 2, val = -16129/-1/16
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.194223] usb 1-3.2: Warning! Unlikely big volume range (=496), cval->res is probably wrong.
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.194230] usb 1-3.2: [50] FU [Mic Capture Volume] ch = 1, val = 0/7936/16
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.195907] input: Solid State System Co.,Ltd. USB PnP Audio Device as /devices/pci0000:00/0000:00:14.0/usb1/1-3/1-3.2/1-3.2:1.3/0003:0C76:1617.0007/input/input10
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.202539] usb 2-3.1: New USB device found, idVendor=090c, idProduct=0750
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.202547] usb 2-3.1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.202551] usb 2-3.1: Product: USB3 + 1 PCIe + RC mode - 88-pin single-row QFN
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.202554] usb 2-3.1: Manufacturer: PLX Technology, Inc.
+Apr 20 21:20:40 rw-hublab-16 mtp-probe: checking bus 2, device 6: "/sys/devices/pci0000:00/0000:00:14.0/usb2/2-3/2-3.1"
+Apr 20 21:20:40 rw-hublab-16 mtp-probe: bus: 2, device: 6 was not an MTP device
+Apr 20 21:20:40 rw-hublab-16 kernel: [  253.248917] hid-generic 0003:0C76:1617.0007: input,hidraw3: USB HID v1.00 Device [Solid State System Co.,Ltd. USB PnP Audio Device] on usb-0000:00:14.0-3.2/input3
+Apr 20 21:20:40 rw-hublab-16 mtp-probe: checking bus 1, device 9: "/sys/devices/pci0000:00/0000:00:14.0/usb1/1-3/1-3.2"
+Apr 20 21:20:40 rw-hublab-16 mtp-probe: bus: 1, device: 9 was not an MTP device
+Apr 20 21:20:40 rw-hublab-16 systemd[1]: Reached target Sound Card.
+Apr 20 21:20:40 rw-hublab-16 pulseaudio[1568]: [pulseaudio] sink.c: Default and alternate sample rates are the same.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Supervising 1 threads of 1 processes of 1 users.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Successfully made thread 2194 of process 1568 (n/a) owned by '1000' RT at priority 5.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Supervising 2 threads of 1 processes of 1 users.
+Apr 20 21:20:40 rw-hublab-16 pulseaudio[1568]: [pulseaudio] source.c: Default and alternate sample rates are the same.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Supervising 2 threads of 1 processes of 1 users.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Successfully made thread 2195 of process 1568 (n/a) owned by '1000' RT at priority 5.
+Apr 20 21:20:40 rw-hublab-16 rtkit-daemon[1020]: Supervising 3 threads of 1 processes of 1 users.
