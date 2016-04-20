@@ -1,0 +1,5 @@
+hello@rw-hublab-16:~$ uname -r
+4.4.0-18-generic
+
+hello@rw-hublab-16:~$ cat /etc/issue
+Ubuntu 16.04 LTS \n \l
