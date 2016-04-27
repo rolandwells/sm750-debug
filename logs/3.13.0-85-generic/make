@@ -1,0 +1,142 @@
+rw@rw:~/Downloads/Linux/Kernel/v1_0_7/Src/sm750$ make
+make -C /lib/modules/3.13.0-85-generic/build M=/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750 CONFIG_FB_SM750=m modules 
+make[1]: Entering directory `/usr/src/linux-headers-3.13.0-85-generic'
+  CC [M]  /home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.o
+In file included from /home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:20:0:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.h:37:5: warning: "VALIDATION_CHIP" is not defined [-Wundef]
+ #if VALIDATION_CHIP
+     ^
+In file included from include/linux/module.h:17:0,
+                 from /home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:1:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘__check_noaccel’:
+include/linux/moduleparam.h:349:45: warning: return from incompatible pointer type [enabled by default]
+  static inline type *__check_##name(void) { return(p); }
+                                             ^
+include/linux/moduleparam.h:395:35: note: in expansion of macro ‘__param_check’
+ #define param_check_bool(name, p) __param_check(name, p, bool)
+                                   ^
+include/linux/moduleparam.h:127:2: note: in expansion of macro ‘param_check_bool’
+  param_check_##type(name, &(value));       \
+  ^
+include/linux/moduleparam.h:113:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:58:1: note: in expansion of macro ‘module_param’
+ module_param(noaccel,bool,S_IRUGO);
+ ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘__check_dumpreg’:
+include/linux/moduleparam.h:349:45: warning: return from incompatible pointer type [enabled by default]
+  static inline type *__check_##name(void) { return(p); }
+                                             ^
+include/linux/moduleparam.h:395:35: note: in expansion of macro ‘__param_check’
+ #define param_check_bool(name, p) __param_check(name, p, bool)
+                                   ^
+include/linux/moduleparam.h:127:2: note: in expansion of macro ‘param_check_bool’
+  param_check_##type(name, &(value));       \
+  ^
+include/linux/moduleparam.h:113:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:61:1: note: in expansion of macro ‘module_param’
+ module_param(dumpreg,bool,S_IRUGO);
+ ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘__check_nomtrr’:
+include/linux/moduleparam.h:349:45: warning: return from incompatible pointer type [enabled by default]
+  static inline type *__check_##name(void) { return(p); }
+                                             ^
+include/linux/moduleparam.h:395:35: note: in expansion of macro ‘__param_check’
+ #define param_check_bool(name, p) __param_check(name, p, bool)
+                                   ^
+include/linux/moduleparam.h:127:2: note: in expansion of macro ‘param_check_bool’
+  param_check_##type(name, &(value));       \
+  ^
+include/linux/moduleparam.h:113:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:65:1: note: in expansion of macro ‘module_param’
+ module_param(nomtrr,bool,S_IRUGO);
+ ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘__check_output’:
+include/linux/moduleparam.h:349:45: warning: return from incompatible pointer type [enabled by default]
+  static inline type *__check_##name(void) { return(p); }
+                                             ^
+include/linux/moduleparam.h:369:34: note: in expansion of macro ‘__param_check’
+ #define param_check_int(name, p) __param_check(name, p, int)
+                                  ^
+include/linux/moduleparam.h:127:2: note: in expansion of macro ‘param_check_int’
+  param_check_##type(name, &(value));       \
+  ^
+include/linux/moduleparam.h:113:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:69:1: note: in expansion of macro ‘module_param’
+ module_param(output,int,S_IRUGO);
+ ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘__check_pnltype’:
+include/linux/moduleparam.h:349:45: warning: return from incompatible pointer type [enabled by default]
+  static inline type *__check_##name(void) { return(p); }
+                                             ^
+include/linux/moduleparam.h:369:34: note: in expansion of macro ‘__param_check’
+ #define param_check_int(name, p) __param_check(name, p, int)
+                                  ^
+include/linux/moduleparam.h:127:2: note: in expansion of macro ‘param_check_int’
+  param_check_##type(name, &(value));       \
+  ^
+include/linux/moduleparam.h:113:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:75:1: note: in expansion of macro ‘module_param’
+ module_param(pnltype,int,S_IRUGO);
+ ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: At top level:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:92:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘sm750fb_pci_probe’
+ static int __devinit sm750fb_pci_probe(struct pci_dev *pdev,const struct pci_device_id *ent);
+                      ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:93:23: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘sm750fb_pci_remove’
+ static void __devexit sm750fb_pci_remove(struct pci_dev *pdev);
+                       ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘sm750fb_set_fbinfo’:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:398:14: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+  info->fbops = &sm750fb_ops;
+              ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: At top level:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:562:12: error: ‘sm750fb_pci_probe’ undeclared here (not in a function)
+  .probe =  sm750fb_pci_probe,
+            ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:563:2: error: implicit declaration of function ‘__devexit_p’ [-Werror=implicit-function-declaration]
+  .remove = __devexit_p(sm750fb_pci_remove),
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:563:24: error: ‘sm750fb_pci_remove’ undeclared here (not in a function)
+  .remove = __devexit_p(sm750fb_pci_remove),
+                        ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:698:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘sm750fb_pci_probe’
+ static int __devinit sm750fb_pci_probe(struct pci_dev *pdev,
+                      ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:775:23: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘sm750fb_pci_remove’
+ static void __devexit sm750fb_pci_remove(struct pci_dev *pdev)
+                       ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘sm750fb_suspend’:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:839:2: error: implicit declaration of function ‘acquire_console_sem’ [-Werror=implicit-function-declaration]
+  acquire_console_sem();
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:854:2: error: implicit declaration of function ‘release_console_sem’ [-Werror=implicit-function-declaration]
+  release_console_sem(); 
+  ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: In function ‘sm750fb_resume’:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:883:8: error: void value not ignored as it ought to be
+   retv = pci_restore_state(dev);
+        ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c: At top level:
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:258:30: warning: ‘sm750fb_create_share’ defined but not used [-Wunused-function]
+ static struct sm750fb_share* sm750fb_create_share(struct pci_dev * pdev, const struct pci_device_id * ent)
+                              ^
+/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.c:378:12: warning: ‘sm750fb_set_fbinfo’ defined but not used [-Wunused-function]
+ static int sm750fb_set_fbinfo(struct fb_info* info,struct sm750fb_share* share,enum sm750fb_controller channel)
+            ^
+cc1: some warnings being treated as errors
+make[2]: *** [/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750/sm750drv.o] Error 1
+make[1]: *** [_module_/home/rw/Downloads/Linux/Kernel/v1_0_7/Src/sm750] Error 2
+make[1]: Leaving directory `/usr/src/linux-headers-3.13.0-85-generic'
+make: *** [default] Error 2
+rw@rw:~/Downloads/Linux/Kernel/v1_0_7/Src/sm750$ uname -a
+Linux rw 3.13.0-85-generic #129-Ubuntu SMP Thu Mar 17 20:50:15 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
