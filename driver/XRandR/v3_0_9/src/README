@@ -1,0 +1,47 @@
+I.  Install Procedures:
+
+    1.  run "sh ./autogen.sh"
+    2.  For 32bit OS: run "./configure -prefix=/usr"
+        For 64bit OS: run "./configure -libdir=/usr/lib64"
+    3.  make install
+   
+
+II. Xorg.conf options
+    "NoAccel"       Turns off the 2D hardware accleration.
+                    Default: "False"
+    "AccelMethod"   Specify the 2D accelration method.
+                    Possible value: "XAA", "EXA"(only support XAA now)
+    "CSCVideo"      Use CSC engine video playbacks, otherwise use Overlay.
+                    Default: "True"
+    "HWCursor"	    turn on hardware cursor
+		    Default: "TRUE"
+    "ARGBCursor"	Turn on alpha layer cursor (only valid when HWCursor is TRUE)
+			Default "TRUE"
+    "DualView"		Turn on Dual View output 
+			Default "TRUE"
+    "XLCD"		Setting expansion lcd X 
+    "YLCD"		Setting expansion lcd Y			
+    "TFT_TYPE"		Setting TFT colour interface type
+			This option get three valid value: 18 , 24 , 36
+	
+III.Notes
+1.	Please always add below line to device section of xorg.conf file	
+	Option "Monitor-PNL"	"Monitor0"
+	Option "Monitor-CRT"	"Monitor1"
+	Please remeber that "Monitor0" and "Monitor1" is the identifier of the Monitor section
+
+2.	Option XLCD and YLCD is the panel expansion size, if both are not zero,the expansion mode is turned on 
+	This will make  Panel Path only use secondary controller which means:
+	A)alpha cursor is not used 
+	B)Overlay is not used neither !!
+
+3.	When DualView is FALSE,Panel path will use primary controller by default.
+	But if expansion is turned on, Panel path will use secondary controller instead 
+
+4.	TFT_TYPE only receive three available interger number:	18 or 24 or 36
+	They are the TFT interface of the panel path.
+
+5.	For sm712 hibernation feature works, please add a file named "01def"
+ 	to your /etc/pm/config.d/. and "01def" should include below line:
+	HIBERNATION_RESUME_POST_VIDEO="yes"
+	
