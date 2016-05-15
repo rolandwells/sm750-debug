@@ -1,0 +1,101 @@
+--+=================================================================+--
+			Kernel Driver Manul Spec
+					updated at	10/28/2011 by monk.liu
+--+=================================================================+--
+1,How to build the kernel with driver source code
+	assume you have a kernel source folder named "linux-2.6.30"
+	and the driver folder named "electra". below are the steps:
+
+	1.type "cp ./electra linux-2.6.30/driver/video/lynxfb -r" to
+	copy driver souce code beneath kernel folder.
+
+	Notes: 	for not picking up the wrong driver folder, be aware that
+		the files under folder electra should contains
+		"lynx_drv.c","lynx_hw750.c","ddk750","ddk712",etc...
+
+	2.add below section into linux-2.6.30/driver/video/Kconfig
+	( recommend to add to tail of "FB_INTEL_I2C" section):
+
+#**********************************************************************
+config FB_LYNXFB
+	tristate "SMI lynx sm750/718/712/722/502 display support"
+	depends on FB && PCI
+	select FB_CFB_IMAGEBLIT
+	select FB_CFB_FILLRECT
+	select FB_CFB_COPYAREA
+	---help---
+	  This driver supports graphic board with the siliconmotion
+	  sm750/sm718/sm712/sm722/sm502. Say Y if you have such a
+	  graphic board.
+	  To compile this driver as a module, choose M here: the
+	  module will be called lynxfb.
+
+#***********************************************************************
+
+
+	3.add below line into linux-2.6.30/driver/video/Makefile :
+		obj-$(CONFIG_FB_LYNXFB)	+= lynxfb/
+
+2,How to build the driver without kernel source code  (we prefer this
+	method)
+
+	assume you have the electra source folder,just goto that folder
+	and type "make" will get you the kernel module named "lynxfb.ko"
+	driver will be built according to the kernel version you are cu-
+	rrently running. use modinfo ./lynxfb.ko to check it.
+
+	*NOTE*:
+	If you are running a v2.6.32 linux and you also got v2.6.38 header
+	files under "/lib/modules/2.6.38/build" folder.
+	You can type "make kernel=2.6.38" to build the driver based on
+	the specific "2.6.38" version kernel (instead of previous method,
+	which will always build the driver based on the kernel version
+	you are running).
+
+3,About the parameter of make:
+	"make debug=2" will output all debug information to tty
+	"make debug=1" wil output all debug information to dmesg
+	"make" outputs any debug information to neither tty nor dmesg
+
+4,About the kernel module paramter of driver
+	For lynxfb kernel modulem, the paramters are all wrapped with
+	a string passed to the lynxfb.ko, for example:
+
+	4.1)Use 1280,16bpp index color and 60 hz mode:
+	insmod ./lynxfb.ko g_option="1280x1024-16@60"
+
+	4.2)Disable MTRR,Disable 2d acceleration,Disable hardware cursor,
+	and use a 800x600 mode :
+	insmod ./lynxfb.ko g_option="noaccel:nomtrr:nohwc:800x600"
+
+	4.3)dual frame buffer for driver with "dual" parameter
+	insmod ./lynxfb.ko g_option="dual:800x600:1024x768"
+	it will create fb0 and fb1 (or fb1,fb2 if fb0 already exist) under /dev
+	and user can use con2fb to link fbX and ttyX
+
+
+	Notes:
+	1)If you build the driver with built-in method, the paramter
+		you edited in the grub config file will be also the
+		same format as above modular method,but additionaly add
+		"video=lynxfb:"
+		ahead of parameters,so,it looks like:
+		video=lynxfb:noaccel,1280x1024@60,otherparam,etc...
+		it equal to modular method with below command:
+		insmod ./lynxfb.ko g_option="noaccel:1280x1024@60:otherparm:etc..."
+e.g.:
+linux /vmlinuz-2.6.30 root=uuid=xxx video=lynxfb:noaccel:1024x768-32@60
+linux /vmlinuz-2.6.30 root=uuid=xxx video=lynxfb:dual:1024x768-32@60:800x600-32@60
+
+
+	Notes#2:if you put 800x600 into the paramter without bpp and
+		refresh rate, kernel driver will defaulty use 16bpp and 60hz
+
+	Notes#3:hardware cursor has been closed by default for SM712/SM722.
+		User can enable it by use option "usehwc".
+
+	Notes#4:The driver will use EDID to set mode by default.If it doesn't get EDID, the driver
+		will set 800x600-16@60hz mode.
+5,The specific driver parameter depends on chip will be explained in furture.
+
+
