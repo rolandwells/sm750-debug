@@ -1,0 +1,119 @@
+---------------------------------------------------------------------------------------
+|                               smi-ufb version 1.3.1                                 |
+|                                                        2016/06/07 --- Ilena.Zhou    |
+---------------------------------------------------------------------------------------
+feature:
+1+, Support Randr and Dualview(with appointed x driver)
+
+Validate on Ubuntu 16.04 32bit and Ubuntu 14.04 64bit
+
+
+
+---------------------------------------------------------------------------------------
+|                               smi-ufb version 1.3.0                                 |
+|                                                       2016/05/20 --- Teddy.Wang     |
+---------------------------------------------------------------------------------------
+feature:
+1+, Support kernel above 3.7
+
+Validate on Ubuntu 16.04 32bit and Ubuntu 14.04 64bit
+
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.2.X 								      |
+|														2013/07/10 --- Ilena.Zhou     |
+---------------------------------------------------------------------------------------
+feature: 
+1+, Read EDID
+
+Bug Fixed:
+1, It will mess at some position because 2d is given a unaigned data with 16 byte 
+2, mess the screen up
+
+
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.2.2 								      |
+|														2013/04/23 --- Sunny.Yang     |
+---------------------------------------------------------------------------------------
+feature: 
+1+, support ubuntu 12.04 
+2+, support convert bpp from 32 to 16 for high performance 
+
+
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.2.1 								      |
+|														2012/11/08 --- mandy.wang     |
+---------------------------------------------------------------------------------------
+feature:
+1+, Support overlay display for 16/32 Bpp.
+2+, Support image data compression, and the range of compress scale from 1:10 
+to 10:10.
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.2.0 								      |
+|														2012/08/21 --- monk.liu       |
+---------------------------------------------------------------------------------------
+feature:
+1+,support multi-card
+2+,now driver will automatically detect if the usb device board is a hdmi board or a 
+	dvi board,or else...
+3+,driver will autoly detect if monitor is plug or not (please set outputs=0),but be
+	aware that some video line is broken and it will make this feature unstable 
+4+,CloneMode supported (run autogen_clone.sh)
+
+
+limitation:
+1+,only fresco fl2009 and d720200f each with one usb device can make multi-card work
+   root cause probably was in usb3.0 host controller's high frequency interference according 
+   to INTEL's view 
+2+,if Dmesg showed that our ufb driver report an error on vmalloc failure,please add "vmalloc=256M" 
+	to the kernel bootup line,if the error still exists then try "vmalloc=512M" ...
+	(According to QA,when NV card and nouveau driver be used, this issue can be duplicated)
+
+changes:
+1+,vendor id and product id changed to 090c and 0750,previous version is 0525 and 1820
+
+Notes:Use autogen.sh will generate a deb package and with this package,the driver
+	will be loaded with outputs=2 by default
+
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.1.0 								      |
+|														2012/06/08 --- monk.liu       |
+---------------------------------------------------------------------------------------
+feature:
+1+,Support hdmi output,use "make hdmi=1" to build the driver if you want hdmi enabled
+   for dep package, please use"sudo ./autogen_hdmi.sh"
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.0.1 								      |
+|														2012/04/24 --- monk.liu       |
+---------------------------------------------------------------------------------------
+feature:
+1+,Support usb device hotplug protection mechanism,now no hang issue after device plug-out
+2+,Support suspend/resume 
+3+,Add monitor-plug-status detection when driver loaded,which determind how many fb will be created 
+4+,provide greatly enhanced performance under console mode
+
+Limitation:
+1+,After device plug out,please push the reboot button of PLX demoboard before device plug in
+2+,Under renesas usb3.0 host controller:user need manually push the reboot button of 
+	plx-demoboard after suspend & before resume
+3+,monitor-plug-status check is not always reliable,it depends on video lines...
+
+Note:
+1,this version should get user significant performance update compared with v1.0
+  you can feel it under framebuffer console
+2,for module driver,"insmod ./ufb.ko dual=1" will force dualview enabled 
+  "insmod ./ufb.ko dual=0" will force simul mode,regardless of monitor-plug-detect result
+
+---------------------------------------------------------------------------------------
+|                        	smi-ufb version 1.0 								      |
+|	  													2012/03/09 --- monk.liu       |
+---------------------------------------------------------------------------------------
+feature:
+1.support dual kernel framebuffer
+2.support 8/16/32 Bpp
+3.support hardware cursor
+4.support USB2.0 and USB3.0 host controller
+
+limitation:
+1.no "1680x1050@60" timing support ,unkown reason make this mode fliker on sm750
+
+

@@ -1,0 +1,1 @@
+cmd_/home/qa/Desktop/binary32_64/ubuntu1604x64/kernelsrc/ufb.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/qa/Desktop/binary32_64/ubuntu1604x64/kernelsrc/ufb.ko /home/qa/Desktop/binary32_64/ubuntu1604x64/kernelsrc/ufb.o /home/qa/Desktop/binary32_64/ubuntu1604x64/kernelsrc/ufb.mod.o

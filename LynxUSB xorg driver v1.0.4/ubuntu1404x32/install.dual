@@ -1,0 +1,95 @@
+#!/bin/bash
+
+ACT_KERNEL=`uname -r`
+GFX="LynxUSB Graphic Driver"
+OS="Ubuntu14.04  32bit"			#Can modify to any OS name
+OS_KERNEL="3.13.0-24-generic"  #Can modify to any kernel version
+
+
+##### Driver name definition 
+SMI_X_DRV="smi_drv.so.dual"
+SMI_X_DRV_DST="smi_drv.so"
+SMI_X_CONF="xorg.conf.dual"
+
+##### Driver path definition
+LIB_PATH="/usr/lib"
+LIB_PATH2="/usr/X11R6/lib"
+X_PATH="/usr/lib/xorg/modules/drivers"
+X_CONF_PATH="/etc/X11/xorg.conf"
+
+check_root()
+{
+   USER=`whoami`
+   if [ "$USER" != "root" ] ; then
+	echo "Error:"
+ 	echo "  This script only can be executed by \"root\" user."
+	echo "  Please swith user to \"root\" and try again."
+	exit
+   fi
+}
+
+##### Sub function - Backup system default drivers/libraries 
+backup()
+{
+  echo "*** Backup related defualt files"
+
+  if [ -f "$X_PATH/$SMI_X_DRV" ] ; then
+     mv $X_PATH/$SMI_X_DRV $X_PATH/$SMI_X_DRV.orig
+  fi
+}
+
+
+fbdrv_make()
+{
+  echo "start make fb driver"
+  cd kernelsrc
+  make randr=1
+  cp ufb.ko ../ufb.ko.dual
+  cd ../ 
+}
+
+##### Sub function - Driver installation
+drv_install()
+{
+  echo "*** Start to install driver binaries"
+
+#==============================================================#
+
+  cp ${SMI_X_DRV} ${X_PATH}/${SMI_X_DRV_DST}
+  #cp smiddk750_drv.so ${X_PATH} 
+  mkdir -p /lib/modules/${ACT_KERNEL}/kernel/drivers/extra
+  cp -f ufb.ko.dual /lib/modules/${ACT_KERNEL}/kernel/drivers/extra/ufb.ko
+  depmod -a
+  rm -rf /root/.config
+  echo "*** Driver binaries were installed!"
+}
+
+
+##### Sub function - Modify xorg.conf/modprobe.conf
+modify_conf()
+{
+  ### Modify /etc/X11/xorg.conf
+  mv ${X_CONF_PATH}  $X_CONF_PATH.orig
+  cp ${SMI_X_CONF} ${X_CONF_PATH}
+
+  echo "*** Xorg.conf Modified!"      
+}
+
+##### Main program
+echo "====== $GFX Display Driver for $OS ======"
+echo "====== Installation Program ======"
+
+#if [ "${ACT_KERNEL}" != "${OS_KERNEL}" ] ; then
+#   echo "Error:"
+#   echo "  This driver package is only support the default kernel"
+#   echo "  \"${OS_KERNEL}\" for ${OS}"
+#else
+   check_root
+   backup
+   fbdrv_make
+   drv_install
+   modify_conf
+   echo "====== Installation completed!! ======"
+#fi
+
+
