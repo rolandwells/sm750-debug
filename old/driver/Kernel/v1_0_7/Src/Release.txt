@@ -1,0 +1,46 @@
+----------------------------------------
+SM750 Linux Kernel Driver (SM750)
+----------------------------------------
+* Version 1.0.7  07/22/2010
+Feature:
+support sm718
+
+* Version 1.0.6  06/08/2010
+Feature:
+Change Chip frequency from 300MHz to 290MHz
+
+* Version 1.0.5  06/07/2010
+Feature:
+Change Chip frequency from 338MHz to 300MHz
+
+* SM750 kernel display v.1.0.3	11/10/2009
+1.fix bug:
+#4820: no 1360x768 mode
+#4821: white screen shown on 2.6.21
+#4822: garbage line occur in 1440x960-32 mode
+#4823: cursor color un-recoverable when vim runs in 2.6.21
+
+* SM750 kernel display v.1.0.0	9/11/2009
+1.Add to support four output.
+2.Add to support build to modules.
+3.Add some high resolution mode:1600x1200;1440x960;1920x1080
+4.QA full checked crt+crt mode.
+  tft+crt only checked 800x600 mode
+  tft(exp)+crt only checked 640x480 expanding to 800x600 mode
+  tft+tft no checked
+  tested only on 2.6.28.
+Limitation
+1.1360x768 not support.
+
+* SM750 phase II display kernel-7/23/2009
+1.Support linux-2.6.27/2.6.28.
+2.Add 2D acceleration.
+A,    Rectangle fill
+B,    Area copy
+C,    Image BLT
+3.Support fbset to change mode.
+4.all vesa modes (now only support simul and Panel only)
+5.Hardware cursor
+6.MTRR
+Limitation
+1.Only support simul.
