@@ -1,1 +1,0 @@
-cmd_/home/hello/sm750-debug/16.04_driver/42828/lynxfb.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/hello/sm750-debug/16.04_driver/42828/lynxfb.ko /home/hello/sm750-debug/16.04_driver/42828/lynxfb.o /home/hello/sm750-debug/16.04_driver/42828/lynxfb.mod.o
